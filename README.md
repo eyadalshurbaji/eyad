@@ -25,6 +25,24 @@ docker build -t eyad-app:latest .
 docker run -p 3000:3000 eyad-app:latest
 ```
 
+Run with docker-compose (recommended for development)
+
+1. Copy `.env.example` to `.env` and edit values if needed:
+```bash
+cp .env.example .env
+```
+2. Start services:
+```bash
+docker compose up --build
+```
+3. Stop services:
+```bash
+docker compose down -v
+```
+
+Postgres will be available on port `5432` (container name `db`), and the app on `http://localhost:3000`.
+
+
 Server default endpoint:
 
 - `GET /` → returns a simple text greeting.
