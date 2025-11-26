@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/app:delegated
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on:
+      - db
